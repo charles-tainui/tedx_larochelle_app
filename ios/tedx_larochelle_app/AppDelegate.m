@@ -8,6 +8,7 @@
 #import <Firebase.h>
 #import "AppDelegate.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import "RNGoogleSignin.h"
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
@@ -41,19 +42,66 @@
 }
 
 
-
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
   
-  BOOL handled = [[FBSDKApplicationDelegate sharedInstance] application:application
-                                                                openURL:url
-                sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
-                annotation:options[UIApplicationOpenURLOptionsAnnotationKey]
-  ];
-  // Add any custom logic here.
-  return handled;
+  BOOL handledGoogle = [RNGoogleSignin application:application
+                                           openURL:url
+                                 sourceApplication:sourceApplication
+                                        annotation:annotation];
+  
+  BOOL handledFacebook = [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                                        openURL:url
+                                                              sourceApplication:sourceApplication
+                                                                     annotation:annotation];
+  return handledFacebook || handledGoogle;
 }
+
+
+/*
+ - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+ sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+ 
+ return [[FBSDKApplicationDelegate sharedInstance] application:application
+ openURL:url
+ sourceApplication:sourceApplication
+ annotation:annotation
+ ]
+ || [RNGoogleSignin application:application
+ openURL:url
+ sourceApplication:sourceApplication
+ annotation:annotation
+ ];
+ }
+ 
+ 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+  
+  return [RNGoogleSignin application:application
+                      openURL:url
+            sourceApplication:sourceApplication
+                   annotation:annotation
+   ];
+}
+
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+  
+  return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                        openURL:url
+                                              sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                                                     annotation:options[UIApplicationOpenURLOptionsAnnotationKey]
+          ]
+  || [RNGoogleSignin application:application
+                           openURL:url
+               sourceApplication:sourceApplication
+                      annotation:annotation
+      ];
+}
+
+ */
 
 
 
