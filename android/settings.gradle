@@ -1,0 +1,3 @@
+rootProject.name = 'tedx_larochelle_app'
+
+include ':app'
