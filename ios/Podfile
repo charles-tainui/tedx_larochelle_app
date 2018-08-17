@@ -19,7 +19,9 @@ target 'tedx_larochelle_app' do
     inherit! :search_paths
     # Pods for testing
     pod 'RNGoogleSignin', :path => '../node_modules/react-native-google-signin'
-
+    pod 'React', :path => '../node_modules/react-native'
+    pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+    
   end
 
   target 'tedx_larochelle_appTests' do

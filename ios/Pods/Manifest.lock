@@ -93,12 +93,14 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
-  - React (0.11.0):
-    - React/Core (= 0.11.0)
-  - React/Core (0.11.0)
+  - React (0.56.0):
+    - React/Core (= 0.56.0)
+  - React/Core (0.56.0):
+    - yoga (= 0.56.0.React)
   - RNGoogleSignin (1.0.0-rc3):
     - GoogleSignIn
     - React
+  - yoga (0.56.0.React)
 
 DEPENDENCIES:
   - FBSDKCoreKit
@@ -108,7 +110,9 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - GoogleSignIn
+  - React (from `../node_modules/react-native`)
   - RNGoogleSignin (from `../node_modules/react-native-google-signin`)
+  - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -131,11 +135,14 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
-    - React
 
 EXTERNAL SOURCES:
+  React:
+    :path: "../node_modules/react-native"
   RNGoogleSignin:
     :path: "../node_modules/react-native-google-signin"
+  yoga:
+    :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
@@ -157,9 +164,10 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  React: ab1a2e21deb34965c38328d5ec40cc7d12c6050a
+  React: 1fe0eb13d90b625d94c3b117c274dcfd2e760e11
   RNGoogleSignin: 44debd8c359a662c0e2d585952e88b985bf78008
+  yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
-PODFILE CHECKSUM: 811d1a75ec92c301197321fd8d22d0b9ac528422
+PODFILE CHECKSUM: 52c80c2f1e5bdc24370122fe8fed699bd61fbf6f
 
 COCOAPODS: 1.5.3
