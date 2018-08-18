@@ -47,11 +47,12 @@ class Welcome extends Component {
 	}
 	
 	async onSignInWithFacebook() {
-		// const options = { permissions: ['public_profile', 'email'], }
+		console.log('onSignInWithFacebook')
+		this.props.signInWithFacebook(null, this.onSigninSuccess, this.onSigninFail)
+		/*
 		LoginManager.logInWithReadPermissions(['public_profile', 'email'])
 		.then((result) => {
 			if(result.isCancelled) {
-				// console.log('Login cancelled');
 			} else {
 				console.log('Login success with permissions: ' + result.grantedPermissions.toString());
 				// get the access token
@@ -67,20 +68,25 @@ class Welcome extends Component {
 		.catch((error) => {
 			console.log('Login fail with error: ' + error);
 		});
+		*/
 	};
 	
 	onSigninSuccess({ exists, user }) {
-		console.log('onSigninSuccess');
+		console.log('Welcome.js : onSigninSuccess');
+		// console.log(user.);
 		console.log(user);
 	}
 	
 	onSigninFail(error) {
-		console.log('onSigninFail');
-		console.log(error);
+		console.log('Welcome.js : onSigninFail');
+		alert(error)
 	}
 	
 	
 	async onSignInWithGoogle() {
+		console.log('onSignInWithGoogle')
+		this.props.signInWithGoogle(null, this.onSigninSuccess, this.onSigninFail)
+		/*
 		try {
 			await GoogleSignin.configure({
 				iosClientId: '141809337181-lrp7g97rmhtr31m04h9ujb1t1hf5737o.apps.googleusercontent.com',
@@ -101,6 +107,7 @@ class Welcome extends Component {
 		} catch ( e ) {
 			console.error(e);
 		}
+		*/
 	};
 	
 	

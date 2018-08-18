@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "141809337181",
+    "firebase_url": "https://tedxlarochelle-52c2f.firebaseio.com",
+    "project_id": "tedxlarochelle-52c2f",
+    "storage_bucket": "tedxlarochelle-52c2f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:141809337181:android:07b1f9efcf53bc24",
+        "android_client_info": {
+          "package_name": "com.tainui.tedxlarochelleandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "141809337181-jnvukbg05crtjsb1t6644ghl5f91pglo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tainui.tedxlarochelleandroid",
+            "certificate_hash": "755d569e3353d6b71bd5c13ff9577c87af781624"
+          }
+        },
+        {
+          "client_id": "141809337181-l14a8qjh5rnm6uujnh3k98pjh7s33p8k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3f7Pd0EqTpVnBwvAuzJLRQRkc6IH6-RE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "141809337181-il1c6ssq7r7ueu19diqqsreio7qc0uq0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "141809337181-va80nfbst3731gkgh6gltv6tptjbc631.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.tainui.tedxlarochelletest"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
