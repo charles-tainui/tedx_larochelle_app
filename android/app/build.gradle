@@ -142,6 +142,7 @@ repositories {
 }
 
 dependencies {
+    compile project(':react-native-splash-screen')
     api project(':react-native-vector-icons')
     api project(':react-native-google-signin')
     api project(':react-native-fbsdk')

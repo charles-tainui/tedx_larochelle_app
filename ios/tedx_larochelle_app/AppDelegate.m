@@ -7,6 +7,8 @@
 
 #import <Firebase.h>
 #import "AppDelegate.h"
+#import "RNSplashScreen.h"
+
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "RNGoogleSignin.h"
 
@@ -38,6 +40,9 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  
+  [RNSplashScreen show];
+  
   return YES;
 }
 

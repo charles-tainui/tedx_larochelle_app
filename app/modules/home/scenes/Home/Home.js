@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Alert } from 'react-native';
+import { View, Text, StyleSheet, Alert } from 'react-native';
 
 import { Button } from 'react-native-elements'
 import { Actions } from 'react-native-router-flux';
@@ -26,7 +26,8 @@ class Home extends Component {
 	}
 
 	onSuccess() {
-		Actions.reset ("Auth")
+		// Actions.reset ("Auth")
+		Actions.Auth();
 	}
 
 	onError(error) {
@@ -39,11 +40,44 @@ class Home extends Component {
 				<Button
 					raised
 					borderRadius={4}
+					title={'Speakers'}
+					containerViewStyle={[styles.containerView]}
+					buttonStyle={[styles.button]}
+					textStyle={styles.buttonText}
+					style={[styles.button]}
+					onPress={Actions.Speakers}
+				/>
+				<Button
+					raised
+					borderRadius={4}
+					title={'Equipe'}
+					containerViewStyle={[styles.containerView]}
+					buttonStyle={[styles.button]}
+					textStyle={styles.buttonText}
+					style={[styles.button]}
+					onPress={Actions.Team}
+				/>
+				<Button
+					raised
+					borderRadius={4}
+					title={'Item #1'}
+					containerViewStyle={[styles.containerView]}
+					buttonStyle={[styles.button]}
+					textStyle={styles.buttonText}
+					style={[styles.button]}
+					onPress={Actions.Item2}
+				/>
+				
+				<Button
+					raised
+					borderRadius={4}
 					title={'LOG OUT'}
 					containerViewStyle={[styles.containerView]}
 					buttonStyle={[styles.button]}
 					textStyle={styles.buttonText}
-					onPress={this.onSignOut}/>
+					onPress={this.onSignOut}
+					style={[styles.button]}
+				/>
 			</View>
 		);
 	}

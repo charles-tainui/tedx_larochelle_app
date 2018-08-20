@@ -3,8 +3,8 @@ import { Text, View, TouchableOpacity, Image } from 'react-native';
 import { Button, SocialIcon, Divider } from 'react-native-elements'
 import { Actions } from 'react-native-router-flux'
 import { connect } from 'react-redux';
-import { LoginManager, AccessToken } from 'react-native-fbsdk';
-import { GoogleSignin } from 'react-native-google-signin';
+// import { LoginManager, AccessToken } from 'react-native-fbsdk';
+// import { GoogleSignin } from 'react-native-google-signin';
 import { actions as auth, constants as c } from "../../index"
 import {
 	auth as firebaseAuth,
@@ -12,8 +12,6 @@ import {
 } from '../../../../config/firebase';
 
 const { signInWithFacebook, signInWithGoogle } = auth;
-
-
 
 import styles from "./styles"
 
@@ -49,26 +47,6 @@ class Welcome extends Component {
 	async onSignInWithFacebook() {
 		console.log('onSignInWithFacebook')
 		this.props.signInWithFacebook(null, this.onSigninSuccess, this.onSigninFail)
-		/*
-		LoginManager.logInWithReadPermissions(['public_profile', 'email'])
-		.then((result) => {
-			if(result.isCancelled) {
-			} else {
-				console.log('Login success with permissions: ' + result.grantedPermissions.toString());
-				// get the access token
-				AccessToken.getCurrentAccessToken()
-				.then((data) => {
-					this.props.signInWithFacebook(data.accessToken, this.onSigninSuccess, this.onSigninFail)
-				})
-				.catch((tokenError) => {
-					alert('Some error occurred' + tokenError);
-				});
-			}
-		})
-		.catch((error) => {
-			console.log('Login fail with error: ' + error);
-		});
-		*/
 	};
 	
 	onSigninSuccess({ exists, user }) {
@@ -86,28 +64,6 @@ class Welcome extends Component {
 	async onSignInWithGoogle() {
 		console.log('onSignInWithGoogle')
 		this.props.signInWithGoogle(null, this.onSigninSuccess, this.onSigninFail)
-		/*
-		try {
-			await GoogleSignin.configure({
-				iosClientId: '141809337181-lrp7g97rmhtr31m04h9ujb1t1hf5737o.apps.googleusercontent.com',
-				scopes: ['openid', 'email', 'profile'],
-				shouldFetchBasicProfile: true
-			})
-			
-			// this.props.signInWithGoogle(data.accessToken, this.onSigninSuccess, this.onSigninFail)
-
-			const data = await GoogleSignin.signIn();
-			
-			// create a new firebase credential with the token
-			const credential = providerGoogle.credential(data.idToken, data.accessToken)
-			// login with credential
-			const currentUser = await auth.signInAndRetrieveDataWithCredential(credential);
-			
-			console.info(JSON.stringify(currentUser.user.toJSON()));
-		} catch ( e ) {
-			console.error(e);
-		}
-		*/
 	};
 	
 	

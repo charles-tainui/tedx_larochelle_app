@@ -9,10 +9,13 @@ const styles = StyleSheet.create({
 	},
 	
 	button: {
-		// backgroundColor: 'yellow',
+		marginBottom:15
 		// alignSelf: 'center'
 		// flex: 1,
 		
+	},
+	buttonText: {
+		fontSize: 18
 	}
 });
 
