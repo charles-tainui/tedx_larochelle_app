@@ -6,9 +6,10 @@ const color = {
 	light_black: "#414141",
 	main: "rgb(99,139,250)",
 	white: "#ffffff",
+	dark_grey: "#3F3F3F",
 	light_grey: "#eaeaea",
 	grey: "#ccc",
-	red: "red",
+	red: "#FF2B06",
 	underlayColor: "#ddd"
 };
 
@@ -29,6 +30,16 @@ const fontFamily = {
 	// light: "RobotoLight"
 }
 
+const navBarStyle = {
+	backgroundColor: color.red,
+}
+
+const navTitleStyle = {
+	fontSize: fontSize.regular,
+	fontFamily: fontFamily.extrabold,
+	color: color.white
+}
+
 const padding = 8;
 const navbarHeight = (Platform.OS === 'ios') ? 64 : 54;
 const windowWidth = Dimensions.get('window').width;
@@ -38,7 +49,6 @@ const tabColor = (Platform.OS === "ios") ? "rgba(73,75,76, .5)" : "rgba(255,255,
 const selectedTabColor = (Platform.OS === "ios") ? "rgb(73,75,76)" : "#fff";
 
 const tabIconStyle = { size: 21, color: tabColor, selected: selectedTabColor }
-const navTitleStyle = { fontSize: fontSize.regular , fontFamily: fontFamily.extrabold, color: color.black }
 
 export {
 	color,
@@ -46,6 +56,7 @@ export {
 	fontFamily,
 	padding,
 	navbarHeight,
+	navBarStyle,
 	windowWidth,
 	windowHeight,
 	tabIconStyle,

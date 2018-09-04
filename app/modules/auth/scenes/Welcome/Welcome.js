@@ -60,18 +60,16 @@ class Welcome extends Component {
 		alert(error)
 	}
 	
-	
 	async onSignInWithGoogle() {
 		console.log('onSignInWithGoogle')
 		this.props.signInWithGoogle(null, this.onSigninSuccess, this.onSigninFail)
 	};
 	
-	
 	render() {
+		 /* <Image style={styles.image} source={require("../../../../assets/images/welcome.jpg")}/> */
 		return (
 			<View style={styles.container}>
 				<View style={styles.wrapper}>
-					<Image style={styles.image} source={require("../../../../assets/images/welcome.jpg")}/>
 					<Text style={styles.title}>Quotes</Text>
 				</View>
 				

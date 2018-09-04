@@ -146,14 +146,11 @@ dependencies {
     api project(':react-native-vector-icons')
     api project(':react-native-google-signin')
     api project(':react-native-fbsdk')
-    api 'com.facebook.android:facebook-android-sdk:[4,5]'
+    // api 'com.facebook.android:facebook-android-sdk:[4,5]'
+    api "com.facebook.android:facebook-android-sdk:4.34.0"
 
     api project(':react-native-firebase')
 
-    // Firebase dependencies
-    api "com.google.firebase:firebase-core:16.0.1"
-    api "com.google.firebase:firebase-auth:16.0.2"
-    api "com.google.firebase:firebase-database:16.0.1"
 
 
     api fileTree(dir: "libs", include: ["*.jar"])
@@ -166,7 +163,13 @@ dependencies {
     api(project(":react-native-google-signin")){
         exclude group: "com.google.android.gms" // very important
     }
+
+
+    // Firebase dependencies
     api 'com.google.android.gms:play-services-auth:16.0.0' // should be at least 15.0.0 to work with most recent APIS
+    api "com.google.firebase:firebase-core:16.0.1"
+    api "com.google.firebase:firebase-auth:16.0.2"
+    api "com.google.firebase:firebase-database:16.0.1"
 }
 
 // Run this once to be able to run the application with BUCK

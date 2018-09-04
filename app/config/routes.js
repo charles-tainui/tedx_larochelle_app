@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
 	Actions,
 	Scene,
@@ -25,39 +25,41 @@ import Login from '../modules/auth/scenes/Login/index';
 // import ForgotPassword from '../modules/auth/scenes/ForgotPassword/index';
 import Home from '../modules/home/scenes/Home/index';
 import Page from '../modules/home/scenes/Page/index';
-import Speaker from '../components/Speaker/index';
+import Speakers from "../modules/home/scenes/Speakers/index";
+import SpeakersSwiper from "../modules/home/scenes/SpeakersSwiper/index";
+import Person from '../components/Person/index';
 
 //Import Store, actions
 import store from '../redux/store'
 import { checkLoginStatus } from "../modules/auth/actions";
 
-import { color, navTitleStyle } from "../styles/theme";
+import { color, navBarStyle, navTitleStyle } from "../styles/theme";
 
-export default class extends React.Component {
+export default class extends Component {
 	constructor() {
-		super ();
+		super();
 		this.state = {
 			isReady: false,
 			isLoggedIn: false,
 			exist: false //indicates if user exist in realtime database
 		}
 	}
-
+	
 	componentDidMount() {
-		console.log ('routes.js => componentDidMount');
+		console.log('routes.js => componentDidMount');
 		let _this = this;
-		store.dispatch (checkLoginStatus ((exist, isLoggedIn) => {
-			_this.setState ({ isReady: true, exist, isLoggedIn });
+		store.dispatch(checkLoginStatus((exist, isLoggedIn) => {
+			_this.setState({ isReady: true, exist, isLoggedIn });
 			// Actions.Home();
 			SplashScreen.hide();
 		}));
 	}
-
+	
 	render() {
 		if(!this.state.isReady) {
 			return false; // <Splash/>
 		}
-
+		
 		return (
 			<Router>
 				<Modal key="modal" hideNavBar>
@@ -68,32 +70,44 @@ export default class extends React.Component {
 						<Stack key="Auth" initial={!this.state.isLoggedIn}>
 							<Scene key="Welcome" component={Welcome} title="" initial={true} hideNavBar/>
 						</Stack>
-	
+						
 						<Stack key="Main" initial={this.state.isLoggedIn}>
-							<Scene key="Home" component={Home} title="Home" initial={true}
-										 type={ActionConst.PUSH}
-										 /*drawer={true}*/
-										 drawerPosition="right"
-							/>
-							<Drawer hideNavBar key="Drawer" drawerPosition="right" drawerImage={DrawerOpenIcon} contentComponent={DrawerContent}>
-								<Scene key="Item1" back={true} onBack={() => Actions.pop()} component={Page} title="Item #1" />
-								<Scene key="Item2" back={true} onBack={() => Actions.pop()} component={Page} title="Item #2" />
-								<Scene key="Item3" back={true} onBack={() => Actions.pop()} component={Page} title="Item #3" />
-							</Drawer>
+							<Tabs hideNavBar tabBarPosition="bottom" >
+								<Scene key="Home" component={Home} title="Home" tabBarLabel="Home" initial={true}
+											 type={ActionConst.PUSH}
+									/*drawer={true}*/
+											 drawerPosition="right"
+											 titleStyle={navTitleStyle}
+											 navigationBarStyle={navBarStyle}
+								/>
+								
+								<Scene key="Speakers" component={Speakers} title="Intervenants" tabBarLabel="Intervenants"
+									// type={ActionConst.PUSH}
+											 back={true} backTitle="" onBack={() => Actions.pop()}
+											 navigationBarStyle={navBarStyle}
+								/>
+								
+								<Scene key="Team" component={Page} title="L'équipe" tabBarLabel="L'équipe"
+											 type={ActionConst.JUMP}
+											 back={true} backTitle="Retour" onBack={() => Actions.pop()}
+											 navigationBarStyle={navBarStyle}
+								/>
 							
-							<Scene key="Speakers" component={Page} title="Speakers"
-										 type={ActionConst.JUMP}
-										 back={true} backTitle="Retour" onBack={() => Actions.pop() }
-							/>
-							<Scene key="Team" component={Page} title="L'équipe"
-										 type={ActionConst.JUMP}
-										 back={true} backTitle="Retour" onBack={() => Actions.pop() }
-							/>
+							</Tabs>
+								<Scene key="SpeakerSwiper" component={SpeakersSwiper}
+											  back={true}
+											 navigationBarStyle={navBarStyle}
+								/>
 						</Stack>
 					</Scene>
 					
-					<Scene back={true} key="Speaker" title="Speaker detail" component={Speaker} />
-					
+					<Drawer hideNavBar key="Drawer" drawerPosition="right" drawerImage={DrawerOpenIcon}
+									contentComponent={DrawerContent}>
+						<Scene key="Item1" back={true} onBack={() => Actions.pop()} component={Page} title="Item #1"/>
+						<Scene key="Item2" back={true} onBack={() => Actions.pop()} component={Page} title="Item #2"/>
+						<Scene key="Item3" back={true} onBack={() => Actions.pop()} component={Page} title="Item #3"/>
+					</Drawer>
+				
 				</Modal>
 			</Router>
 		)

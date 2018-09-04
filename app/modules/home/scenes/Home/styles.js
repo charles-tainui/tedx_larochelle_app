@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
 	},
 	
 	button: {
+		marginBottom: 10,
 		// backgroundColor: 'yellow',
 		// alignSelf: 'center'
 		// flex: 1,
